@@ -1,0 +1,10 @@
+[package]
+name = "rhizome-reed-ir"
+description = "Core IR types for reed language translation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+serde.workspace = true

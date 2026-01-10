@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/rhizome-lab/reed"
+
+[workspace.dependencies]
+rhizome-reed-ir = { path = "crates/reed-ir" }
+rhizome-reed-ts = { path = "crates/reed-ts" }
+rhizome-reed-lua = { path = "crates/reed-lua" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
