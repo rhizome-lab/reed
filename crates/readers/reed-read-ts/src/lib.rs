@@ -1,5 +1,7 @@
 //! TypeScript reader for reed IR.
 //!
-//! Parses TypeScript source code into reed IR.
+//! Parses TypeScript source code into reed IR using tree-sitter.
 
-// TODO: Implement TypeScript parser
+mod reader;
+
+pub use reader::{read, ReadError};

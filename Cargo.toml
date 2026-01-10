@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/reed-ir", "crates/readers/*", "crates/writers/*"]
+members = ["crates/reed-ir", "crates/reed-sexpr", "crates/readers/*", "crates/writers/*"]
 
 [workspace.package]
 version = "0.1.0"
@@ -10,6 +10,7 @@ repository = "https://github.com/rhizome-lab/reed"
 
 [workspace.dependencies]
 rhizome-reed-ir = { path = "crates/reed-ir" }
+rhizome-reed-sexpr = { path = "crates/reed-sexpr" }
 rhizome-reed-read-lua = { path = "crates/readers/reed-read-lua" }
 rhizome-reed-read-ts = { path = "crates/readers/reed-read-ts" }
 rhizome-reed-write-lua = { path = "crates/writers/reed-write-lua" }
