@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/*"]
+members = ["crates/reed-ir", "crates/readers/*", "crates/writers/*"]
 
 [workspace.package]
 version = "0.1.0"
@@ -10,8 +10,10 @@ repository = "https://github.com/rhizome-lab/reed"
 
 [workspace.dependencies]
 rhizome-reed-ir = { path = "crates/reed-ir" }
-rhizome-reed-ts = { path = "crates/reed-ts" }
-rhizome-reed-lua = { path = "crates/reed-lua" }
+rhizome-reed-read-lua = { path = "crates/readers/reed-read-lua" }
+rhizome-reed-read-ts = { path = "crates/readers/reed-read-ts" }
+rhizome-reed-write-lua = { path = "crates/writers/reed-write-lua" }
+rhizome-reed-write-ts = { path = "crates/writers/reed-write-ts" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 thiserror = "2"

@@ -1,0 +1,10 @@
+[package]
+name = "rhizome-reed-read-lua"
+description = "Lua reader for reed IR"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+rhizome-reed-ir.workspace = true

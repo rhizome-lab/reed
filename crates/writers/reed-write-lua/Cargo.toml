@@ -1,6 +1,6 @@
 [package]
-name = "rhizome-reed-ts"
-description = "TypeScript reader/writer for reed IR"
+name = "rhizome-reed-write-lua"
+description = "Lua writer for reed IR"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -8,4 +8,3 @@ repository.workspace = true
 
 [dependencies]
 rhizome-reed-ir.workspace = true
-thiserror.workspace = true

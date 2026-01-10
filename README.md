@@ -16,9 +16,13 @@ The IR is deliberately simple - expressions, statements, function calls, binding
 ```
 reed/
 ├── crates/
-│   ├── reed-ir/        # Core IR types
-│   ├── reed-ts/        # TypeScript reader/writer
-│   └── reed-lua/       # Lua reader/writer
+│   ├── reed-ir/              # Core IR types
+│   ├── readers/
+│   │   ├── reed-read-ts/     # TypeScript → IR
+│   │   └── reed-read-lua/    # Lua → IR
+│   └── writers/
+│       ├── reed-write-ts/    # IR → TypeScript
+│       └── reed-write-lua/   # IR → Lua
 ```
 
 ### IR Design
@@ -46,14 +50,14 @@ Adding a new language requires implementing reader and/or writer for that langua
 ## Usage
 
 ```rust
-use reed_ts::TsReader;
-use reed_lua::LuaWriter;
+use rhizome_reed_read_ts::TsReader;
+use rhizome_reed_write_lua::LuaWriter;
 
 // Read TypeScript
 let ir = TsReader::parse("const x = 1 + 2;")?;
 
 // Write to Lua
-let lua = LuaWriter::emit(&ir)?;
+let lua = LuaWriter::emit(&ir);
 // => "local x = 1 + 2"
 ```
 

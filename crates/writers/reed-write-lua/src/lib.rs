@@ -1,4 +1,6 @@
-//! Lua code emitter.
+//! Lua writer for reed IR.
+//!
+//! Emits reed IR as Lua source code.
 
 use rhizome_reed_ir::*;
 use std::fmt::Write;
@@ -157,7 +159,6 @@ impl LuaWriter {
 
             Stmt::Continue => {
                 // Lua 5.1 doesn't have continue, use goto in 5.2+
-                // For now, emit a comment
                 self.output.push_str("-- continue (not supported in Lua 5.1)");
             }
 
@@ -277,7 +278,6 @@ impl LuaWriter {
                     if i > 0 {
                         self.output.push_str(", ");
                     }
-                    // Use bracket notation for safety
                     write!(self.output, "[\"{}\"] = ", key).unwrap();
                     self.write_expr(value);
                 }
@@ -294,7 +294,6 @@ impl LuaWriter {
                 alternate,
             } => {
                 // Lua doesn't have ternary, use `a and b or c` pattern
-                // (careful: fails if b is falsy)
                 self.output.push('(');
                 self.write_expr(test);
                 self.output.push_str(" and ");
