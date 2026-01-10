@@ -19,9 +19,8 @@ pub enum ReadError {
 /// Parse TypeScript source into reed IR.
 pub fn read(source: &str) -> Result<Program, ReadError> {
     let mut parser = Parser::new();
-    let language = tree_sitter_typescript::LANGUAGE_TYPESCRIPT;
     parser
-        .set_language(&language.into())
+        .set_language(&arborium_typescript::language().into())
         .map_err(|err| ReadError::Parse(err.to_string()))?;
 
     let tree = parser
