@@ -1,8 +1,14 @@
 # Reed
 
-Language-agnostic code translation via a restricted intermediate representation.
+> **This project has moved to [moss/crates/moss-surface-syntax](https://github.com/rhizome-lab/moss/tree/master/crates/moss-surface-syntax).**
+>
+> Reed has been integrated into the moss monorepo as `moss-surface-syntax`. Please use the new location for all future work.
+
+---
 
 ## Overview
+
+Language-agnostic code translation via a restricted intermediate representation.
 
 Reed translates code between languages by:
 1. **Reading** source syntax into a minimal IR
@@ -46,20 +52,6 @@ Each language has a reader (parse → IR) and writer (IR → emit):
 | Lua | `reed-lua` | `reed-lua` |
 
 Adding a new language requires implementing reader and/or writer for that language's syntax, targeting the same IR.
-
-## Usage
-
-```rust
-use rhizome_reed_read_ts::TsReader;
-use rhizome_reed_write_lua::LuaWriter;
-
-// Read TypeScript
-let ir = TsReader::parse("const x = 1 + 2;")?;
-
-// Write to Lua
-let lua = LuaWriter::emit(&ir);
-// => "local x = 1 + 2"
-```
 
 ## Relationship to Spore
 
